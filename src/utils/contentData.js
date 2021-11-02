@@ -1,5 +1,5 @@
 import cheese from "../assets/cheese.jpg"
-import pepperoni from "../assets/pepperoni.png"
+import pepperoni from "../assets/pepperoni.jpg"
 
 const contentData = [
     {

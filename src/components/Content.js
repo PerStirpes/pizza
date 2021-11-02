@@ -1,35 +1,33 @@
 import React, { Component } from "react"
 
-import { Row, Col } from "reactstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { Row, Col } from "reactstrap"
 
 import products from "../utils/contentData"
-// import products from "../products.json"
 
 class Content extends Component {
     render() {
         return (
-            <div className="next-steps my-5">
-                <h2 className="my-5 text-center">Hungry for a Jumbo Slice</h2>
-                <Row className="d-flex justify-content-between">
+            <ul>
+                <h2 className="title">Hungry for a Jumbo Slice</h2>
+                <li className="grid">
                     {products.map((product, i) => {
                         const { link, title, image, description, price } = product
                         return (
-                            <Col key={i} md={5} className="mb-4">
-                                <h6 className="mb-3">
+                            <li key={i} className="card">
+                                <a href={link}>
                                     <img src={image} />
-                                    <a href={link}>
-                                        <FontAwesomeIcon icon="link" className="mr-2" />
-                                        {title}
-                                    </a>
-                                    {price}
-                                </h6>
+                                    <br />
+                                    <h3> {title}</h3>
+
+                                    <p> {price}</p>
+                                </a>
+
                                 <p>{description}</p>
-                            </Col>
+                            </li>
                         )
                     })}
-                </Row>
-            </div>
+                </li>
+            </ul>
         )
     }
 }

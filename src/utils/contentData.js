@@ -1,28 +1,23 @@
-const contentData = [
-  {
-    title: "Configure other identity providers",
-    link: "https://auth0.com/docs/connections",
-    description:
-      "Auth0 supports social providers as Facebook, Twitter, Instagram and 100+, Enterprise providers as Microsoft Office 365, Google Apps, Azure, and more. You can also use any OAuth2 Authorization Server."
-  },
-  {
-    title: "Enable Multifactor Authentication",
-    link: "https://auth0.com/docs/multifactor-authentication",
-    description:
-      "Add an extra layer of security by enabling Multi-factor Authentication, requiring your users to provide more than one piece of identifying information. Push notifications, authenticator apps, SMS, and DUO Security are supported."
-  },
-  {
-    title: "Anomaly Detection",
-    link: "https://auth0.com/docs/anomaly-detection",
-    description:
-      "Auth0 can detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts."
-  },
-  {
-    title: "Learn About Rules",
-    link: "https://auth0.com/docs/rules",
-    description:
-      "Rules are JavaScript functions that execute when a user authenticates to your application. They run once the authentication process is complete, and you can use them to customize and extend Auth0's capabilities."
-  }
-];
+import cheese from "../assets/cheese.jpg"
+import pepperoni from "../assets/pepperoni.png"
 
-export default contentData;
+const contentData = [
+    {
+        title: "Cheese Pizza Jumbo Slice",
+        link: "https://auth0.com/docs/connections",
+        description:
+            "Come prepared to eat this slice with a fork and knife because it falls apart as soon as you pick it up. Structural integrity aside, you can still properly fold this jumbo slice in half and eat it without risking an avalanche of grease.",
+        image: cheese,
+        price: "$ 5.00",
+    },
+    {
+        title: "Pepperoni Pizza Jumbo Slice",
+        link: "https://auth0.com/docs/multifactor-authentication",
+        description:
+            "Fresh mozzarella cheese dominates each bite, with a light touch of unsweetened marinara. It’s the right sauce-to-cheese ratio, which also means the slice is structurally sound. Even though it’s gigantic, and the Pepperoni is magical.",
+        image: pepperoni,
+        price: "$ 6.00",
+    },
+]
+
+export default contentData

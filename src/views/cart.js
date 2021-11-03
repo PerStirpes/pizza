@@ -27,14 +27,14 @@ const columns = [
 
 export default function Home() {
     const { cartItems } = useCartState()
-    const { user, isAuthenticated, loginWithRedirect } = useAuth0()
+    const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
     console.log("user", user)
 
     function clearStorage() {
         if (user.email_verified === true) {
             window.localStorage.clear()
             alert("Order Placed")
-            window.location.reload()
+            logout()
         } else {
             alert("Please Verify Your Email Address")
         }

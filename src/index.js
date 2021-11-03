@@ -15,22 +15,23 @@ const onRedirectCallback = (appState) => {
 // for a full list of the available properties on the provider
 const config = getConfig()
 
-// const providerConfig = {
-//     domain: config.domain,
-//     clientId: config.clientId,
-//     ...(config.audience ? { audience: config.audience } : null),
-//     redirectUri: window.location.origin,
-//     onRedirectCallback,
-// }
-
 const providerConfig = {
     domain: config.domain,
     clientId: config.clientId,
-    audience: config.audience,
+    ...(config.audience ? { audience: config.audience } : null),
     scope: "read:current_user update:current_user_metadata",
     redirectUri: window.location.origin,
     onRedirectCallback,
 }
+
+// const providerConfig = {
+//     domain: config.domain,
+//     clientId: config.clientId,
+//     audience: config.audience,
+//     scope: "read:current_user update:current_user_metadata",
+//     redirectUri: window.location.origin,
+//     onRedirectCallback,
+// }
 
 ReactDOM.render(
     <Auth0Provider {...providerConfig}>

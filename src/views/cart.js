@@ -3,6 +3,8 @@ import React from "react"
 import { useCartState } from "../utils/use-cart"
 import products from "../utils/contentData"
 import Table from "../components/Table"
+import { Button } from "reactstrap"
+import { useAuth0 } from "@auth0/auth0-react"
 
 const columns = [
     {
@@ -25,6 +27,18 @@ const columns = [
 
 export default function Home() {
     const { cartItems } = useCartState()
+    const { user, isAuthenticated, loginWithRedirect } = useAuth0()
+    console.log("user", user)
+
+    function clearStorage() {
+        if (user.email_verified === true) {
+            window.localStorage.clear()
+            alert("Order Placed")
+            window.location.reload()
+        } else {
+            alert("Please Verify Your Email Address")
+        }
+    }
 
     const data = cartItems.map(({ id, quantity, pricePerUnit }) => {
         const product = products.find(({ id: pid }) => pid === id)
@@ -46,9 +60,21 @@ export default function Home() {
                 <Table className="table" data={data} columns={columns} />
 
                 <p className="checkout">
-                    <button className="button" onClick={console.log("checkout button")}>
-                        Check Out
-                    </button>
+                    {!isAuthenticated && (
+                        <Button
+                            id="qsLoginBtn"
+                            color="primary"
+                            className="btn-margin"
+                            onClick={() => loginWithRedirect()}
+                        >
+                            Log in to checkout
+                        </Button>
+                    )}
+                    {isAuthenticated && (
+                        <Button id="qsLoginBtn" color="primary" className="btn-margin" onClick={() => clearStorage()}>
+                            Place Pizza Order
+                        </Button>
+                    )}
                 </p>
             </main>
         </div>

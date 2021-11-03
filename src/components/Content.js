@@ -10,7 +10,7 @@ export default function Content() {
 
     return (
         <div className="containers">
-            <h1 className="title">Pizza 42 POC</h1>
+            <h1 className="title">Pizza 42</h1>
             <p className="description">Hungry for a Jumbo Slice? The Best Jumbo Slice in Your Town!</p>
             <p className="description">
                 <strong>Items:</strong> {quantity}

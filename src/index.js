@@ -19,7 +19,7 @@ const providerConfig = {
     domain: config.domain,
     clientId: config.clientId,
     ...(config.audience ? { audience: config.audience } : null),
-    scope: "read:current_user update:current_user_metadata",
+    scope: "read:messages",
     redirectUri: window.location.origin,
     onRedirectCallback,
 }

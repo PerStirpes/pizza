@@ -1654,7 +1654,7 @@
   dependencies:
     "@types/express" "*"
 
-"@types/express@*":
+"@types/express@*", "@types/express@^4.0.0":
   "integrity" "sha512-no+R6rW60JEc59977wIxreQVsIEOAYwgCqldrA/vkpCnbD7MqTefO97lmoBe4WE0F156bC4uLSP1XHDOySnChg=="
   "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.11.tgz"
   "version" "4.17.11"
@@ -4910,6 +4910,11 @@
     "jest-message-util" "^24.9.0"
     "jest-regex-util" "^24.9.0"
 
+"express-jwt-authz@^2.4.1":
+  "integrity" "sha512-ruH86e2NvWicG9maStztyAyBJV0E8RsInXUm6Kuc/9pDtVJmJw3qigv1MEVs5bH+aksZuxocYZdz+N1V/9F+Dg=="
+  "resolved" "https://registry.npmjs.org/express-jwt-authz/-/express-jwt-authz-2.4.1.tgz"
+  "version" "2.4.1"
+
 "express-jwt@^6.0.0":
   "integrity" "sha512-C26y9myRjx7CyhZ+BAT3p+gQyRCoDZ7qo8plCvLDaRT6je6ALIAQknT6XLVQGFKwIy/Ux7lvM2MNap5dt0T7gA=="
   "resolved" "https://registry.npmjs.org/express-jwt/-/express-jwt-6.0.0.tgz"
@@ -4920,12 +4925,19 @@
     "jsonwebtoken" "^8.1.0"
     "lodash.set" "^4.0.0"
 
+"express-oauth2-jwt-bearer@^1.0.1":
+  "integrity" "sha512-vnnpvX6X1JdMcIbT4yirg5l6mfqborV+lygiLHFAtu4RzvIQZPRZEPgb7mWbiq3qzEXzBdLNRKbJwX70V0P3sQ=="
+  "resolved" "https://registry.npmjs.org/express-oauth2-jwt-bearer/-/express-oauth2-jwt-bearer-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "jose" "^4.0.1"
+
 "express-unless@^0.3.0":
   "integrity" "sha1-JVfBRudb65A+LSR/m1ugFFJpbiA="
   "resolved" "https://registry.npmjs.org/express-unless/-/express-unless-0.3.1.tgz"
   "version" "0.3.1"
 
-"express@^4.16.4", "express@^4.17.1":
+"express@^4.0.0", "express@^4.16.4", "express@^4.17.1":
   "integrity" "sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.17.1.tgz"
   "version" "4.17.1"
@@ -7077,6 +7089,11 @@
   dependencies:
     "import-local" "^2.0.0"
     "jest-cli" "^24.9.0"
+
+"jose@^4.0.1":
+  "integrity" "sha512-iCCOrCZuG+BjP3SsjTmJtgFZey1hwHMUqv9nBqFkdJtJ/jd193QgCl/u339IdyS+2opUklON+9VzGzmKaudsfg=="
+  "resolved" "https://registry.npmjs.org/jose/-/jose-4.1.4.tgz"
+  "version" "4.1.4"
 
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="

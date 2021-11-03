@@ -1,10 +1,11 @@
-import React from "react"
-
+import React, { useState } from "react"
+import { getConfig } from "../config"
 import { useCartState } from "../utils/use-cart"
 import products from "../utils/contentData"
 import Table from "../components/Table"
 import { Button } from "reactstrap"
 import { useAuth0 } from "@auth0/auth0-react"
+import Highlight from "../components/Highlight"
 
 const columns = [
     {
@@ -27,14 +28,45 @@ const columns = [
 
 export default function Home() {
     const { cartItems } = useCartState()
-    const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0()
+    const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently, logout } = useAuth0()
+
     console.log("user", user)
 
-    function clearStorage() {
+    const { apiOrigin = "http://localhost:3001", audience } = getConfig()
+
+    const [state, setState] = useState({
+        showResult: false,
+        apiMessage: "",
+        error: null,
+    })
+
+    const placeOrder = async () => {
         if (user.email_verified === true) {
-            window.localStorage.clear()
-            alert("Order Placed")
-            logout()
+            try {
+                const token = await getAccessTokenSilently()
+
+                const response = await fetch(`${apiOrigin}/api/external`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+
+                const responseData = await response.json()
+
+                setState({
+                    ...state,
+                    showResult: true,
+                    apiMessage: responseData,
+                })
+                window.localStorage.clear()
+                alert("Order Placed")
+                // logout({ returnTo: window.location.origin })
+            } catch (error) {
+                setState({
+                    ...state,
+                    error: error.error,
+                })
+            }
         } else {
             alert("Please Verify Your Email Address")
         }
@@ -71,12 +103,22 @@ export default function Home() {
                         </Button>
                     )}
                     {isAuthenticated && (
-                        <Button id="qsLoginBtn" color="primary" className="btn-margin" onClick={() => clearStorage()}>
+                        <Button id="qsLoginBtn" color="primary" className="btn-margin" onClick={placeOrder}>
                             Place Pizza Order
                         </Button>
                     )}
                 </p>
             </main>
+            <div className="result-block-container">
+                {state.showResult && (
+                    <div className="result-block" data-testid="api-result">
+                        <h6 className="muted">Result</h6>
+                        <Highlight>
+                            <span>{JSON.stringify(state.apiMessage, null, 2)}</span>
+                        </Highlight>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

@@ -7,7 +7,7 @@ export function getConfig() {
     // don't have an API).
     // If this resolves to `null`, the API page changes to show some helpful info about what to do
     // with the audience."dev-9z9cjf70.auth0.com"
-    const audience = null
+    const audience = "https://example-api"
     // configJson.audience && configJson.audience !== "YOUR_API_IDENTIFIER"
     //   ? configJson.audience
     //   : null;

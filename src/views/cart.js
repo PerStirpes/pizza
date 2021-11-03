@@ -30,8 +30,6 @@ export default function Home() {
     const { cartItems } = useCartState()
     const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently, logout } = useAuth0()
 
-    console.log("user", user)
-    console.log("user.sub", user.sub)
     const { apiOrigin = "http://localhost:3001", audience } = getConfig()
 
     const [state, setState] = useState({
@@ -41,6 +39,8 @@ export default function Home() {
     })
 
     const placeOrder = async () => {
+        console.log("user", user)
+        console.log("user.sub", user.sub)
         if (user.email_verified === true) {
             try {
                 const token = await getAccessTokenSilently()

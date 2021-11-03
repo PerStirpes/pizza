@@ -31,7 +31,7 @@ export default function Home() {
     const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently, logout } = useAuth0()
 
     console.log("user", user)
-
+    console.log("user.sub", user.sub)
     const { apiOrigin = "http://localhost:3001", audience } = getConfig()
 
     const [state, setState] = useState({
@@ -83,6 +83,7 @@ export default function Home() {
             total: (quantity * pricePerUnit).toFixed(2),
         }
     })
+    console.log("this is the data", data)
 
     return (
         <div className="container">
@@ -113,9 +114,8 @@ export default function Home() {
                 {state.showResult && (
                     <div className="result-block" data-testid="api-result">
                         <h6 className="muted">Result</h6>
-                        <Highlight>
-                            <span>{JSON.stringify(state.apiMessage, null, 2)}</span>
-                        </Highlight>
+
+                        <span>{JSON.stringify(state.apiMessage, null, 2)}</span>
                     </div>
                 )}
             </div>

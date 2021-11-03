@@ -8,7 +8,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 export const ProfileComponent = () => {
     const { user, getAccessTokenSilently } = useAuth0()
     const [userMetadata, setUserMetadata] = useState(null)
-
+    console.log("user.sub", user.sub)
     useEffect(() => {
         const getUserMetadata = async () => {
             const domain = "dev-9z9cjf70.auth0.com"

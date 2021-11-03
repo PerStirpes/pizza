@@ -39,7 +39,7 @@ export default function Content() {
                                             addToCart({ id })
                                         }}
                                     >
-                                        Order Now
+                                        Add To Cart
                                     </button>
                                 </p>
                                 <p>{description}</p>

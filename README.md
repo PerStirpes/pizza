@@ -94,3 +94,14 @@ useEffect(() => {
 
     ```
 ````
+
+```
+ {
+  "statusCode": 401,
+  "error": "Unauthorized",
+  "message": "Expired token received for JSON Web Token validation",
+  "attributes": {
+    "error": "Expired token received for JSON Web Token validation"
+  }
+}
+```

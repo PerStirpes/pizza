@@ -95,7 +95,7 @@ const NavBar = () => {
                                             className="dropdown-profile"
                                             activeClassName="router-link-exact-active"
                                         >
-                                            <FontAwesomeIcon icon="user" className="mr-3" /> Cart
+                                            <FontAwesomeIcon icon="pizza-slice" className="mr-3" /> Cart
                                         </DropdownItem>
                                         <DropdownItem id="qsLogoutBtn" onClick={() => logoutWithRedirect()}>
                                             <FontAwesomeIcon icon="power-off" className="mr-3" /> Log out

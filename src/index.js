@@ -19,19 +19,10 @@ const providerConfig = {
     domain: config.domain,
     clientId: config.clientId,
     ...(config.audience ? { audience: config.audience } : null),
-    scope: "read:messages",
+    scope: "read:messages read:current_user update:users update:current_user_metadata read:users_app_metadata update:users_app_metadata create:users_app_metadata",
     redirectUri: window.location.origin,
     onRedirectCallback,
 }
-
-// const providerConfig = {
-//     domain: config.domain,
-//     clientId: config.clientId,
-//     audience: config.audience,
-//     scope: "read:current_user update:current_user_metadata",
-//     redirectUri: window.location.origin,
-//     onRedirectCallback,
-// }
 
 ReactDOM.render(
     <Auth0Provider {...providerConfig}>

@@ -12,7 +12,7 @@ const port = process.env.API_PORT || 3001
 const appPort = process.env.SERVER_PORT || 3000
 const appOrigin = authConfig.appOrigin || `http://localhost:${appPort}`
 
-const checkScopes = jwtAuthz(["read:messages"])
+const checkScopes = jwtAuthz(["read:messages", "read:users", "write:users"])
 
 app.use(morgan("dev"))
 app.use(helmet())
@@ -37,8 +37,8 @@ app.get("/api/external", checkScopes, (req, res) => {
     // console.log("req.headers.authorization", req.headers.authorization)
 
     // console.log("res.json()", res.json())
-    console.log("res.body()", req.body)
-    console.log("res.headers", req.headers)
+    // console.log("res.body()", req.body)
+    // console.log("res.headers", req.headers)
 
     res.send({
         msg: `Your Pizza Ordered was successfully placed! ${JSON.stringify(req.user, null, 2)}`,
